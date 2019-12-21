@@ -1,0 +1,16 @@
+.button {
+    background: transparent;
+    border: none;
+    margin-right: 5%;
+}
+
+.update-button-icon {
+    transform: scale(2);
+    color: green;
+}
+
+
+.delete-button-icon {
+    transform: scale(2);
+    color: red;
+}
