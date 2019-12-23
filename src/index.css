@@ -12,19 +12,3 @@ code {
     monospace;
 }
 
-
-
-.add-button {
-  background: transparent;
-  border: none;
-  border-radius: 50%;
-  position: fixed;
-  right: 5%;
-  bottom: 5%;
-}
-
-.add-button-icon {
-  transform: scale(4);
-  color: skyblue;
-
-}

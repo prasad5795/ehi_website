@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+.add-button {
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  position: fixed;
+  right: 5%;
+  bottom: 5%;
+}
+
+.add-button-icon {
+  transform: scale(4);
+  color: skyblue;
+
+}
+
+.grey-out{
+  opacity: 0.2;
+  pointer-events: none;
+}

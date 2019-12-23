@@ -2,53 +2,73 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import UserList from "./Components/userList/UserList"
-import PopupForm from "./Components/insertForm/PopupForm"
-
-
-
+import PopupForm from "./Components/popupForm/PopupForm"
 
 class App extends React.Component {
 
   state = {
-    insertFormVisible: false,
+    popupVisible: false,
     userList: [],
     selectedUser: null,
-    deletePopup:false
+    updatePopup: false,
+    deletePopup: false,
+    indexOfSelectedUser: -1
   }
 
   constructor(props) {
     super(props)
   }
 
-  showInsertPopup = (user) => {
-    console.log("show popup", user)
-    this.setState({ insertFormVisible: true, selectedUser: user, deletePopup:false })
+  showPopup = (user, index, updatePopup) => {
+    this.setState({ popupVisible: true, selectedUser: user, deletePopup: false, updatePopup: updatePopup, indexOfSelectedUser: index })
   }
 
-  closeInsertPopup = () => {
+  closePopup = () => {
     let usersString = localStorage.getItem('users')
     let users = []
     if (usersString) {
       users = JSON.parse(usersString)
     }
-    this.setState({ insertFormVisible: false, userList: users, deletePopup:false })
+    this.setState({ popupVisible: false, userList: users, deletePopup: false, updatePopup: false })
   }
 
-  showDeletePopup = (user) => {
-    console.log("delete popup")
-    this.setState({ insertFormVisible: true, selectedUser: user , deletePopup:true })
+  showDeletePopup = (user, index, updatePopup) => {
+    this.setState({ popupVisible: true, selectedUser: user, deletePopup: true, updatePopup: updatePopup, indexOfSelectedUser: index })
+  }
 
+
+  deleteUser = () => {
+    console.log("seleted", this.state.selectedUser)
+    let userList = this.state.userList.slice()
+    let userToBeDeleted;
+    for (let user of this.state.userList) {
+      if (user.email === this.state.selectedUser.email) {
+        userToBeDeleted = user
+        break
+      }
+    }
+    userList.splice(userList.indexOf(userToBeDeleted), 1)
+    localStorage.setItem('users', JSON.stringify(userList))
+    this.setState({ userList: userList })
+    this.closePopup()
   }
 
   render() {
     return (
-      <div className="App">
-        <h1 className="text-left m-4">Users</h1>
-        <PopupForm selectedUser={this.state.selectedUser} deletePopup={this.state.deletePopup} insertFormVisible={this.state.insertFormVisible} closeInsertPopup={this.closeInsertPopup}></PopupForm>
-        <UserList userList={this.state.userList} showInsertPopup={this.showInsertPopup} closeInsertPopup={this.closeInsertPopup} showDeletePopup={this.showDeletePopup}></UserList>
-        <button className="add-button" onClick={()=>this.showInsertPopup(null)}>
-          <i className="fa fa-plus-circle add-button-icon" aria-hidden="true"></i>
-        </button>
+      <div className='App'>
+        {
+          this.state.popupVisible ?
+            <PopupForm selectedUser={this.state.selectedUser} updatePopup={this.state.updatePopup} indexOfSelectedUser={this.state.indexOfSelectedUser} deletePopup={this.state.deletePopup} popupVisible={this.state.popupVisible} closePopup={this.closePopup} deleteUser={this.deleteUser}></PopupForm>
+            :
+            <React.Fragment></React.Fragment>
+        }
+        <div className={this.state.popupVisible ? 'grey-out' : ''}>
+          <h1 className="text-left m-4">Users</h1>
+          <UserList userList={this.state.userList} showPopup={this.showPopup} closePopup={this.closePopup} showDeletePopup={this.showDeletePopup}></UserList>
+          <button className="add-button" onClick={() => this.showPopup(null, -1, false)}>
+            <i className="fa fa-plus-circle add-button-icon" aria-hidden="true"></i>
+          </button>
+        </div>
       </div>
     );
   }
@@ -59,7 +79,7 @@ class App extends React.Component {
     if (usersString) {
       users = JSON.parse(usersString)
     }
-    this.setState({ insertFormVisible: false, userList: users })
+    this.setState({ popupVisible: false, userList: users })
   }
 }
 

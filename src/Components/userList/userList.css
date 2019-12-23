@@ -14,3 +14,40 @@
     transform: scale(2);
     color: red;
 }
+
+
+
+.table-row{
+    padding-bottom: 1vh;
+    margin-bottom: 1vh;
+    border-bottom: 1px solid lightgray;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.header{
+    background-color: coral;
+    border-radius: 2px;
+}
+
+.header-text{
+    font-weight: bold;
+    font-size: larger;
+}
+
+.overflow-elipsis{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.user-list-table{
+    min-width: 96%;
+    max-width: 96%;
+
+}
+
+
+.user-list-div{
+    display: table;
+}
