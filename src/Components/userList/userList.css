@@ -22,7 +22,6 @@
     padding-top: 1vh;
     padding-bottom: 1vh;
     /* margin-bottom: 1vh; */
-    border-bottom: 1px solid lightgray;
     margin-left: 2%;
     margin-right: 2%;
     color: #3e2723;
@@ -39,6 +38,12 @@
     font-weight: bold;
     font-size: larger;
 }
+
+.table-cell{
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 1vh;
+}
+
 
 .overflow-elipsis{
     overflow: hidden;

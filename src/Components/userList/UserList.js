@@ -16,23 +16,23 @@ export class UserList extends Component {
                 {
                     this.props.userList && this.props.userList.length > 0 ? <React.Fragment>
                         <div className="row table-row header">
-                            <div className="col-2 header-text">First Name</div>
-                            <div className="col-2 header-text">Last Name</div>
-                            <div className="col-2 header-text">Email</div>
-                            <div className="col-2 header-text">Phone Number</div>
-                            <div className="col-2 header-text">Status</div>
-                            <div className="col-2 header-text">Operation</div>
+                            <div className="col-2 header-text table-cell">First Name</div>
+                            <div className="col-2 header-text table-cell">Last Name</div>
+                            <div className="col-2 header-text table-cell">Email</div>
+                            <div className="col-2 header-text table-cell">Phone Number</div>
+                            <div className="col-2 header-text table-cell">Status</div>
+                            <div className="col-2 header-text table-cell">Operation</div>
                         </div>
                         {
                             this.props.userList.map((user, i) => {
                                 return (
                                     <div className="row table-row" key={i}>
-                                        <div className="col-2 overflow-elipsis">{user.firstName}</div>
-                                        <div className="col-2 overflow-elipsis">{user.lastName}</div>
-                                        <div className="col-2 overflow-elipsis">{user.email}</div>
-                                        <div className="col-2 overflow-elipsis">{user.phoneNumber}</div>
-                                        <div className="col-2 overflow-elipsis">{user.status}</div>
-                                        <div className="col-2 overflow-elipsis">
+                                        <div className="col-2 overflow-elipsis table-cell">{user.firstName}</div>
+                                        <div className="col-2 overflow-elipsis table-cell">{user.lastName}</div>
+                                        <div className="col-2 overflow-elipsis table-cell">{user.email}</div>
+                                        <div className="col-2 overflow-elipsis table-cell">{user.phoneNumber}</div>
+                                        <div className="col-2 overflow-elipsis table-cell">{user.status}</div>
+                                        <div className="col-2 overflow-elipsis table-cell">
                                             <button className="button" onClick={()=>{this.props.showPopup(user,i,true)}}>
                                                 <i className="fa fa-pencil-square update-button-icon" aria-hidden="true"></i>
                                             </button>

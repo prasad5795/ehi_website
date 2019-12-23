@@ -16,6 +16,13 @@
 }
 
 
+.btn{
+    font-weight: bold;
+    color: #3e2723;
+    background-color: #ffebee;
+
+}
+
 
 .popup-invisible {
     display: none;
