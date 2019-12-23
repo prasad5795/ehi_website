@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### 'npm install'
+### `npm install`
 first install all the required dependencies
 
 ### `npm start`
@@ -17,6 +17,10 @@ You will also see any lint errors in the console.
 
 ### Note : 
 localstorage is used in this project so initially it will not have any users first add one user then it will start showing list of users
+
+Components folder inside src folder have two folders 
+1.popupForm => used to open add delete update popups
+2.userList => used to show the list of users
 
 ### `npm test`
 

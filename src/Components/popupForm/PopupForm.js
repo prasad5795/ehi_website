@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import "./PopupForm.css"
 
 export default class PopupForm extends PureComponent {
+
     state = {
         user: {
             firstName: "",
@@ -13,17 +14,13 @@ export default class PopupForm extends PureComponent {
         isUpdateForm: false
     }
 
-
     constructor(props) {
         super(props);
 
     }
 
-
     handleChange = (event) => {
-        const regexForPhoneNumber = /^[0-9\b]+$/;
         const regexForNames = /^[a-zA-Z]*$/;
-        const regexForEmail = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
         switch (event.target.id) {
             case "FirstName":
                 if (event.target.value === '' || regexForNames.test(event.target.value)) {
@@ -118,18 +115,15 @@ export default class PopupForm extends PureComponent {
                                         placeholder="Enter Status" required>
                                         <option>Activate</option>
                                         <option>Deactivate</option>
-
                                     </select>
                                 </div>
                                 <button type="submit" className="btn">Submit</button>
                             </form>
                         </div>
-
                 }
             </div>
         );
     }
-
 
     componentDidMount() {
         if (this.props.updatePopup) {

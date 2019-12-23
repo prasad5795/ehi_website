@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import UserList from "./Components/userList/UserList"
 import PopupForm from "./Components/popupForm/PopupForm"
@@ -38,7 +37,6 @@ class App extends React.Component {
 
 
   deleteUser = () => {
-    console.log("seleted", this.state.selectedUser)
     let userList = this.state.userList.slice()
     let userToBeDeleted;
     for (let user of this.state.userList) {
