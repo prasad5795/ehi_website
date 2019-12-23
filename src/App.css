@@ -32,11 +32,15 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
+.app-header {
+  background-color: #ffebee;
+}
 
 
 .add-button {
@@ -50,11 +54,11 @@
 
 .add-button-icon {
   transform: scale(4);
-  color: skyblue;
+  color: #3e2723;
 
 }
 
-.grey-out{
+.grey-out {
   opacity: 0.2;
   pointer-events: none;
 }

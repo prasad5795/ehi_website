@@ -26,22 +26,22 @@ export default class PopupForm extends PureComponent {
         const regexForEmail = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
         switch (event.target.id) {
             case "FirstName":
-                // if (event.target.value === '' || regexForNames.test(event.target.value)) {
+                if (event.target.value === '' || regexForNames.test(event.target.value)) {
                     this.setState({ user: { ...this.state.user, firstName: event.target.value } })
-                // }
+                }
                 break;
             case "LastName":
-                // if (event.target.value === '' || regexForNames.test(event.target.value)) {
+                if (event.target.value === '' || regexForNames.test(event.target.value)) {
                     this.setState({ user: { ...this.state.user, lastName: event.target.value } })
-                // }
+                }
                 break;
             case "Email":
                 this.setState({ user: { ...this.state.user, email: event.target.value } })
                 break;
             case "PhoneNumber":
-                // if (event.target.value === '' || regexForPhoneNumber.test(event.target.value) && this.state.user.phoneNumber.length < 10) {
+                if (event.target.value === '' || regexForPhoneNumber.test(event.target.value) && this.state.user.phoneNumber.length < 10) {
                     this.setState({ user: { ...this.state.user, phoneNumber: event.target.value } })
-                // }
+                }
                 break;
             case "Status":
                 this.setState({ user: { ...this.state.user, status: event.target.value } })

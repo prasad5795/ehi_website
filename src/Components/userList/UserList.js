@@ -14,7 +14,7 @@ export class UserList extends Component {
         return (
             <div className="container-fluid">
                 {
-                    this.props.userList.length > 0 ? <React.Fragment>
+                    this.props.userList && this.props.userList.length > 0 ? <React.Fragment>
                         <div className="row table-row header">
                             <div className="col-2 header-text">First Name</div>
                             <div className="col-2 header-text">Last Name</div>

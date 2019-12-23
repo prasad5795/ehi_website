@@ -55,21 +55,25 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className='App'>
-        {
-          this.state.popupVisible ?
-            <PopupForm selectedUser={this.state.selectedUser} updatePopup={this.state.updatePopup} indexOfSelectedUser={this.state.indexOfSelectedUser} deletePopup={this.state.deletePopup} popupVisible={this.state.popupVisible} closePopup={this.closePopup} deleteUser={this.deleteUser}></PopupForm>
-            :
-            <React.Fragment></React.Fragment>
-        }
-        <div className={this.state.popupVisible ? 'grey-out' : ''}>
-          <h1 className="text-left m-4">Users</h1>
-          <UserList userList={this.state.userList} showPopup={this.showPopup} closePopup={this.closePopup} showDeletePopup={this.showDeletePopup}></UserList>
-          <button className="add-button" onClick={() => this.showPopup(null, -1, false)}>
-            <i className="fa fa-plus-circle add-button-icon" aria-hidden="true"></i>
-          </button>
+      <React.Fragment>
+        <div className="app-header">
+          <h1 className="text-left p-4">Users</h1>
         </div>
-      </div>
+        <div className='App'>
+          {
+            this.state.popupVisible ?
+              <PopupForm selectedUser={this.state.selectedUser} updatePopup={this.state.updatePopup} indexOfSelectedUser={this.state.indexOfSelectedUser} deletePopup={this.state.deletePopup} popupVisible={this.state.popupVisible} closePopup={this.closePopup} deleteUser={this.deleteUser}></PopupForm>
+              :
+              <React.Fragment></React.Fragment>
+          }
+          <div className={this.state.popupVisible ? 'grey-out' : ''}>
+            <UserList userList={this.state.userList} showPopup={this.showPopup} closePopup={this.closePopup} showDeletePopup={this.showDeletePopup}></UserList>
+            <button className="add-button" onClick={() => this.showPopup(null, -1, false)}>
+              <i className="fa fa-plus-circle add-button-icon" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </React.Fragment>
     );
   }
 

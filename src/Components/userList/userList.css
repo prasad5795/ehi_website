@@ -2,31 +2,36 @@
     background: transparent;
     border: none;
     margin-right: 5%;
+
 }
 
 .update-button-icon {
     transform: scale(2);
-    color: green;
+    color: #3e2723;
 }
 
 
 .delete-button-icon {
     transform: scale(2);
-    color: red;
+    color: #3e2723;
 }
 
 
 
 .table-row{
+    padding-top: 1vh;
     padding-bottom: 1vh;
-    margin-bottom: 1vh;
+    /* margin-bottom: 1vh; */
     border-bottom: 1px solid lightgray;
     margin-left: 2%;
     margin-right: 2%;
+    color: #3e2723;
+}
+
+.table-row:nth-child(even){
 }
 
 .header{
-    background-color: coral;
     border-radius: 2px;
 }
 
