@@ -1,12 +1,7 @@
 import React from 'react';
-import { render } from '@testing-library/react';
 import App from './App';
-import ReactDOM from 'react-dom'
-import UserList from "./Components/userList/UserList"
-import PopupForm from "./Components/popupForm/PopupForm"
 import Enzyme, {shallow} from 'enzyme'
 import EnzymeAdapter from 'enzyme-adapter-react-16'
-
 
 Enzyme.configure({ adapter: new EnzymeAdapter() })
 
@@ -22,8 +17,6 @@ describe("UserList", () => {
         const insertPopupButton = wrapper.find("[data-test='insert-popup-button']")
         expect(insertPopupButton.length).toBe(1)
     });
-
-    
 
     test("should render userlist component", () => {
         const wrapper = shallow(<App/>);
@@ -48,7 +41,6 @@ describe("UserList", () => {
         expect(wrapper.state('popupVisible') && wrapper.state('selectedUser')===null && wrapper.state('indexOfSelectedUser')===-1).toBeTruthy()
 
     });
-
 });
 
 

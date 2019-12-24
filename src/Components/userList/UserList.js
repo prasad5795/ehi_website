@@ -26,17 +26,17 @@ export class UserList extends Component {
                         {
                             this.props.userList.map((user, i) => {
                                 return (
-                                    <div className="row table-row" key={i}>
+                                    <div data-test="actual-list" className="row table-row" key={i}>
                                         <div className="col-2 overflow-elipsis table-cell">{user.firstName}</div>
                                         <div className="col-2 overflow-elipsis table-cell">{user.lastName}</div>
                                         <div className="col-2 overflow-elipsis table-cell">{user.email}</div>
                                         <div className="col-2 overflow-elipsis table-cell">{user.phoneNumber}</div>
                                         <div className="col-2 overflow-elipsis table-cell">{user.status}</div>
                                         <div className="col-2 overflow-elipsis table-cell">
-                                            <button className="button" onClick={()=>{this.props.showPopup(user,i,true)}}>
+                                            <button data-test="update-button" className="button" onClick={()=>{this.props.showPopup(user,i,true)}}>
                                                 <i className="fa fa-pencil-square update-button-icon" aria-hidden="true"></i>
                                             </button>
-                                            <button className="button" onClick={()=>{this.props.showDeletePopup(user,i,true)}}>
+                                            <button data-test="delete-button" className="button" onClick={()=>{this.props.showDeletePopup(user,i,true)}}>
                                                 <i className="fa fa-trash delete-button-icon" aria-hidden="true"></i>
                                             </button>
                                         </div>
@@ -44,7 +44,7 @@ export class UserList extends Component {
                                 )
                             })
                         }
-                    </React.Fragment> : <h3>No User Found</h3>
+                    </React.Fragment> : <h3 data-test="empty-list-label">No User Found</h3>
                 }
             </div>
         );
