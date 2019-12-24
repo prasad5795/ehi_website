@@ -55,7 +55,7 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <div className="app-header">
-          <h1 className="text-left p-4">Users</h1>
+          <h1 data-test="app-component-header" className="text-left p-4">Users</h1>
         </div>
         <div className='App'>
           {
@@ -65,8 +65,8 @@ class App extends React.Component {
               <React.Fragment></React.Fragment>
           }
           <div className={this.state.popupVisible ? 'grey-out' : ''}>
-            <UserList userList={this.state.userList} showPopup={this.showPopup} closePopup={this.closePopup} showDeletePopup={this.showDeletePopup}></UserList>
-            <button className="add-button" onClick={() => this.showPopup(null, -1, false)}>
+            <UserList data-test="user-list-component" userList={this.state.userList} showPopup={this.showPopup} closePopup={this.closePopup} showDeletePopup={this.showDeletePopup}></UserList>
+            <button data-test="insert-popup-button" className="add-button" onClick={() => this.showPopup(null, -1, false)}>
               <i className="fa fa-plus-circle add-button-icon" aria-hidden="true"></i>
             </button>
           </div>
